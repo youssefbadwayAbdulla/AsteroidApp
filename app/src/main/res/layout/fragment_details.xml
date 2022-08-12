@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.myapplication.domain.model.DataModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_screen_background">
+
+        <ImageView
+            app:asteroidStatusImage="@{data.potentiallyHazardousAsteroid}"
+            android:id="@+id/statusIV"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/this_image_will_br_view_some_images_for_asteroid"
+            android:scaleType="centerCrop"
+            android:src="@drawable/asteroid_hazardous"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/statusIV">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/the_date_of_this_approach"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="italic" />
+
+                    <TextView
+
+                        android:id="@+id/tv_approach_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:text="@{data.date}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="italic"
+                        tools:text="6/8/2022" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        tools:ignore="Suspicious0dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_absolute_magnitude"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/absolute_magnitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/white"
+                            app:AbsoluteMagnitudeTextView="@{data.absoluteMagnitude}"
+                            tools:text="25.126 au" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/help_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ths_icon_help_us_to_known_absolute_magnitude"
+                        android:padding="16dp"
+                        app:srcCompat="@drawable/ic_help" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/estimateddiametermax"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/estimated_diameter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="0.91 Km"
+                    android:textColor="@color/white"
+                    app:EstimatedDiameterMaxTextView="@{data.estimatedDiameterMax}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/relativevelocity"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/relative_velocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="10.1 Km"
+                    android:textColor="@color/white"
+                    app:kilometersPerSecondTextView="@{data.kilometersPerSecond}" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/miss_distance"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/miss_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="0.0924 au"
+                    android:textColor="@color/white"
+                    app:astronomicalTextView="@{data.astronomical}" />
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

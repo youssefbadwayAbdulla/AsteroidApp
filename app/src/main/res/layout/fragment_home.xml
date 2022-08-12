@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_screen_background"
+        tools:context=".HomeFragment">
+
+        <ImageView
+            android:id="@+id/iv_placeholder_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:contentDescription="@string/this_image_will_br_view_some_images_for_asteroid"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/BlackLightColorOfText"
+            android:padding="10dp"
+            android:text="@string/image_of_day"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_placeholder_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/rv_asteroid_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_placeholder_photo" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_asteroid_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/rv_asteroid_view"
+            app:layout_constraintTop_toTopOf="@+id/rv_asteroid_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

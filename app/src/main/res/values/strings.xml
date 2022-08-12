@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Asteroid App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_of_day">Image of day</string>
+    <string name="this_image_will_br_view_some_images_for_asteroid">This Image will br view some Images for asteroid</string>
+    <string name="the_date_of_this_approach">The date of this approach</string>
+    <string name="title_absolute_magnitude">Title absolute magnitude</string>
+    <string name="astronomical_unit_format_text_and_add_the_new_text">%f au</string>
+    <string name="estimated_diameter_text">%f au</string>
+    <string name="kilometers_per_second_text_view">%f au</string>
+    <string name="astronomical_text_view">%f au</string>
+    <string name="ths_icon_help_us_to_known_absolute_magnitude">ths icon help us to known absolute magnitude</string>
+    <string name="estimateddiametermax">EstimatedDiameterMax</string>
+    <string name="relativevelocity">RelativeVelocity</string>
+    <string name="miss_distance">Miss Distance</string>
+    <string name="messageAlertDialog">The astronomical unit is a unit of length, roughly the distance from Earth to the Sun and equal to about 130 million kilometres</string>
+</resources>
