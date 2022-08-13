@@ -15,4 +15,7 @@
     <string name="relativevelocity">RelativeVelocity</string>
     <string name="miss_distance">Miss Distance</string>
     <string name="messageAlertDialog">The astronomical unit is a unit of length, roughly the distance from Earth to the Sun and equal to about 130 million kilometres</string>
+    <string name="view_week_asteroid">View Week asteroid</string>
+    <string name="view_today_asteroid">view_today_asteroid</string>
+    <string name="view_saved_asteroid">view_saved_asteroid</string>
 </resources>

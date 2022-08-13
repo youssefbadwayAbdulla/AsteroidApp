@@ -1,14 +1,13 @@
 package com.example.myapplication.presentation.ui.home
 
 
-
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.domain.model.DataModel
 import com.example.myapplication.presentation.ui.adapters.HomeAdapter
@@ -36,12 +35,12 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
         with(viewModel) {
             loadingLiveData.observe(viewLifecycleOwner) { binding.progressBar.isVisible = it }
             dataAPILiveData.observe(viewLifecycleOwner) { setupRecyclerView(it) }
-        imageLiveData.observe(viewLifecycleOwner){ binding.ivPlaceholderPhoto.downloadImage(it) }
+            imageLiveData.observe(viewLifecycleOwner) { binding.ivPlaceholderPhoto.downloadImage(it) }
         }
     }
 
     private fun setupRecyclerView(listData: MutableList<DataModel>) {
-        val adapter:HomeAdapter by lazy { HomeAdapter(listData, this) }
+        val adapter: HomeAdapter by lazy { HomeAdapter(listData, this) }
         adapter.setList(listData)
         binding.rvAsteroidView.adapter = adapter
 
@@ -49,6 +48,27 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
 
     override fun onClick(item: DataModel) {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(item))
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_items, menu)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.view_week -> {
+                Toast.makeText(requireContext(), "view week", Toast.LENGTH_LONG).show()
+            }
+            R.id.view_day -> {
+                Toast.makeText(requireContext(), "view day", Toast.LENGTH_LONG).show()
+            }
+            R.id.saved_week -> {
+                Toast.makeText(requireContext(), "view saved", Toast.LENGTH_LONG).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
