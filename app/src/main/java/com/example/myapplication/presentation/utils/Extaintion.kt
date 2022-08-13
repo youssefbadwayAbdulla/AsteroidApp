@@ -11,4 +11,5 @@ fun ImageView.downloadImage(url:String){
         .centerCrop()
         .placeholder(R.drawable.placeholder_photo)
         .into(this)
+
 }
