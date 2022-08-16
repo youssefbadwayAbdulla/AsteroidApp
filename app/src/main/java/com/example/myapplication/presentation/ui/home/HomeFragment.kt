@@ -19,7 +19,6 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
         FragmentHomeBinding.inflate(LayoutInflater.from(requireContext()))
     }
     private val viewModel: HomeViewModel by sharedViewModel()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +29,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         viewModel.getAllImage()
         viewModel.getAPIAllData()
         with(viewModel) {
@@ -38,6 +38,7 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
             imageLiveData.observe(viewLifecycleOwner) { binding.ivPlaceholderPhoto.downloadImage(it) }
         }
     }
+
 
     private fun setupRecyclerView(listData: MutableList<DataModel>) {
         val adapter: HomeAdapter by lazy { HomeAdapter(listData, this) }
@@ -59,13 +60,16 @@ class HomeFragment : Fragment(), HomeAdapter.OnItemClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.view_week -> {
-                Toast.makeText(requireContext(), "view week", Toast.LENGTH_LONG).show()
+                viewModel.getDataWeekAndSaved()
+                Toast.makeText(requireContext(), "asteroid  week", Toast.LENGTH_LONG).show()
             }
             R.id.view_day -> {
-                Toast.makeText(requireContext(), "view day", Toast.LENGTH_LONG).show()
+                viewModel.getDataDay()
+                Toast.makeText(requireContext(), "asteroid day", Toast.LENGTH_LONG).show()
             }
             R.id.saved_week -> {
-                Toast.makeText(requireContext(), "view saved", Toast.LENGTH_LONG).show()
+                viewModel.getDataWeekAndSaved()
+                Toast.makeText(requireContext(), "asteroid saved", Toast.LENGTH_LONG).show()
             }
         }
         return super.onOptionsItemSelected(item)

@@ -21,4 +21,13 @@ class LocalRepositoryIMP(private val db: AppDatabase) : LocalRepository {
         db.dao().deleteAllDataFromDatabase()
     }
 
+    override suspend fun getTodayAsteroids(today: String): MutableList<DataEntity> {
+
+        return db.dao().getTodayAsteroids(today)
+    }
+
+    override suspend fun getWeekAsteroids(week: String): MutableList<DataEntity> {
+       return db.dao().getWeekAsteroids(week)
+    }
+
 }

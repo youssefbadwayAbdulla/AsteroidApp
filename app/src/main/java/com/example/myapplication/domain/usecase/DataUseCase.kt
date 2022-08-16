@@ -1,5 +1,6 @@
 package com.example.myapplication.domain.usecase
 
+import com.example.myapplication.data.entities.DataEntity
 import com.example.myapplication.data.repositories.RemoteRepositoryIMP
 import com.example.myapplication.domain.data_interfaces.LocalRepository
 import com.example.myapplication.domain.data_interfaces.RemoteRepository
@@ -19,4 +20,5 @@ class DataUseCase(private val remoteRepository: RemoteRepository,private val loc
         }
         return result
     }
+
 }
